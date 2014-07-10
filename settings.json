@@ -1,0 +1,9 @@
+{
+  "publicServer": "http://localhost:8080",
+  "commandUri": "/command/:hiddenServerName/:command",
+  "pingUri": "/ping/:hiddenServerName/:state",
+  "hiddenServerName": "server1",
+  "simultaneousPings": 3,
+  "pingInterval": 5,
+  "keepPingOpen": true
+}
