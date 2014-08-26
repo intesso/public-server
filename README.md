@@ -1,7 +1,13 @@
-hidden-server
+public-server
 =============
 
-access server sitting behind firewalls with unknown ip-address via reverse tunnel on demand.
+let's a `client` talk to `hidden-server` via `public-server`
+
+
+use case: e.g. access server sitting behind firewalls with unknown ip-address via reverse tunnel on demand.
+
+
+the `public-server` is the counter part of [hidden-server](https://github.com/intesso/hidden-server/).
 
 ## how it works
 
@@ -12,7 +18,7 @@ the `hidden-server` consists of three parts: `client` --command--> `public` <--p
 
 
 
-it uses `http POST` only. the `hidden` server sends out ping messages to the `publicServer` at the given `pingInterval`.
+it uses `http POST` with JSON content. the `hidden` server sends out ping messages to the `publicServer` at the given `pingInterval`.
 in order to allow simultaneous user access, `simultaneousPings` are sent by the `hidden` server.
 
 
@@ -171,7 +177,14 @@ diagrams created with [asciiflow](http://asciiflow.com/)
 ## install
 
   ```shell
-  npm install hidden-server
+  npm install public-server
+  ```
+
+## test
+
+  ```shell
+  npm install public-server -d
+  mocha
   ```
 
 ##usage
@@ -179,7 +192,7 @@ diagrams created with [asciiflow](http://asciiflow.com/)
 ### hidden
 
   ```javascript
-  var HiddenServer = require('hidden-server')('hidden');
+  var HiddenServer = require('hidden-server');
   var hidden = new HiddenServer({
     publicServer: 'http://localhost:3000',
     pingUri: '/ping/:hiddenServerName',
@@ -199,7 +212,7 @@ diagrams created with [asciiflow](http://asciiflow.com/)
 ### public
 
   ```javascript
-  var PublicServer = require('hidden-server')('public');
+  var PublicServer = require('public-server');
   var public = PublicServer({
     commandUri: '/command/:hiddenServerName',
     pingUri: '/ping/:hiddenServerName',
@@ -218,7 +231,7 @@ diagrams created with [asciiflow](http://asciiflow.com/)
 ### client
 
   ```shell
-  curl localhost:3000/command/server1/newCommand
+  curl -H "Content-Type: application/json" -d '{"command":"newCommand","additional":"parameter"}' localhost:3000/command/server1
   ```
 
 ## license

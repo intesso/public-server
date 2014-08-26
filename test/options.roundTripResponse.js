@@ -26,7 +26,7 @@ describe('options.roundTripResponse.js', function() {
 
 
     /* hidden-server */
-    var HiddenServer = require('../index')('hidden');
+    var HiddenServer = require('hidden-server');
     var hidden = new HiddenServer(settings).start();
 
     hidden.on('command', function(obj, cb) {

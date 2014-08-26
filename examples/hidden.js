@@ -1,4 +1,4 @@
-var HiddenServer = require('../index')('hidden');
+var HiddenServer = require('hidden-server');
 var hidden = new HiddenServer({
   publicServer: 'http://localhost:3000',
   pingUri: '/ping/:hiddenServerName',

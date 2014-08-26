@@ -1,4 +1,4 @@
-var PublicServer = require('../index')('public');
+var PublicServer = require('../index');
 var public = PublicServer({
   commandUri: '/command/:hiddenServerName',
   pingUri: '/ping/:hiddenServerName',
