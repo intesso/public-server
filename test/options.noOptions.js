@@ -32,7 +32,7 @@ describe('options.noOptions.js', function() {
     hidden.on('command', function(obj, cb) {});
 
     /* public-server */
-    var PublicServer = require('../index')('public');
+    var PublicServer = require('../index');
     var public = PublicServer(settings);
 
     public.on('command', function(cmd) {});

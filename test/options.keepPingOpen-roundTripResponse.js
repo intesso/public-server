@@ -41,7 +41,7 @@ describe('options.keepPingOpen-roundTripResponse.js', function() {
     });
 
     /* public-server */
-    var PublicServer = require('../index')('public');
+    var PublicServer = require('../index');
     var public = PublicServer(settings);
 
     public.on('command', function(cmd) {});

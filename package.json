@@ -36,9 +36,9 @@
     "express": "~4.2.0"
   },
   "devDependencies": {
-    "hidden-server":  "*",
-    "superagent": "~0.18.0",
+    "debug-trace": "~0.2.3",
+    "hidden-server": "*",
     "mocha": "~1.21.4",
-    "debug-trace": "~0.2.3"
+    "superagent": "~0.18.0"
   }
 }
